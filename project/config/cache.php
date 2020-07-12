@@ -60,7 +60,7 @@ return [
 
         'redis' => [
             'driver' => 'redis',
-            'connection' => 'default',
+            'connection' => 'cache',
         ],
 
     ],
@@ -76,7 +76,7 @@ return [
     |
     */
 
-    'prefix' => env('CACHE_PREFIX', 'october'),
+    'prefix' => env('CACHE_PREFIX', ''),
 
     /*
     |--------------------------------------------------------------------------
@@ -90,7 +90,7 @@ return [
     |
     */
 
-    'codeParserDataCacheKey' => env('CACHE_KEY', 'october'),
+    'codeParserDataCacheKey' => env('CACHE_KEY', ''),
 
     /*
     |--------------------------------------------------------------------------

@@ -55,9 +55,9 @@ return [
         'mysql' => [
             'driver'     => 'mysql',
             'engine'     => 'InnoDB',
-            'host' => env('DB_HOST', 'localhost'),
+            'host' => env('DB_HOST', 'rafaeldeveloper-mysql'),
             'port' => env('DB_PORT', 3306),
-            'database' => env('DB_DATABASE', 'database'),
+            'database' => env('DB_DATABASE', 'rafaeldeveloper_db'),
             'username' => env('DB_USERNAME', ''),
             'password' => env('DB_PASSWORD', ''),
             'charset'    => 'utf8mb4',
@@ -123,6 +123,20 @@ return [
             'password' => env('REDIS_PASSWORD', null),
             'port' => env('REDIS_PORT', 6379),
             'database' => 0,
+        ],
+
+        'session' => [
+            'host' => env('REDIS_HOST', '127.0.0.1'),
+            'password' => env('REDIS_PASSWORD', null),
+            'port' => env('REDIS_PORT', 6379),
+            'database' => 1,
+        ],
+
+        'cache' => [
+            'host' => env('REDIS_HOST', '127.0.0.1'),
+            'password' => env('REDIS_PASSWORD', null),
+            'port' => env('REDIS_PORT', 6379),
+            'database' => 2,
         ],
 
     ],
