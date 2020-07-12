@@ -30,9 +30,6 @@ COPY ./php/php-fpm.conf /etc/php/7.3/fpm/php-fpm.conf
 ## Supervisor
 COPY ./supervisord/supervisord.conf /etc/supervisord.conf
 
-## .env app
-COPY ./.env_app /root/.env_app
-
 ## Docker scripts
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 COPY wait.sh /usr/local/bin/wait.sh
