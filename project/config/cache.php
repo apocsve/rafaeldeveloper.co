@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => 'file',
+    'default' => env('CACHE_DRIVER', 'file'),
 
     /*
     |--------------------------------------------------------------------------
@@ -76,7 +76,7 @@ return [
     |
     */
 
-    'prefix' => 'october',
+    'prefix' => env('CACHE_PREFIX', 'october'),
 
     /*
     |--------------------------------------------------------------------------
@@ -90,7 +90,7 @@ return [
     |
     */
 
-    'codeParserDataCacheKey' => 'cms-php-file-data',
+    'codeParserDataCacheKey' => env('CACHE_KEY', 'october'),
 
     /*
     |--------------------------------------------------------------------------
