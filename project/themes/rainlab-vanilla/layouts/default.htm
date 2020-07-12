@@ -1,31 +1,26 @@
 description = "Default layout"
-
-[session]
-security = "all"
 ==
 <!DOCTYPE html>
 <html>
+
     <head>
         <meta charset="utf-8">
-        <title>October CMS - {{ this.page.title }}</title>
+        <title>Rafael Sánchez- {{ this.page.title }}</title>
         <meta name="description" content="{{ this.page.meta_description }}">
         <meta name="title" content="{{ this.page.meta_title }}">
-        <meta name="author" content="October CMS">
+        <meta name="author" content="Rafael Sánchez">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" href="{{ 'assets/images/october.png'|theme }}" />
         {% styles %}
-        <link href="{{ [
-            'assets/less/theme.less'
-        ]|theme }}" rel="stylesheet">
+        <link href="{{ ['assets/less/theme.less']|theme }}" rel="stylesheet">
     </head>
-    <body>
 
+    <body>
         <!-- Header -->
         <header id="layout-header">
-
             <!-- Nav -->
             <nav id="layout-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                             <span class="sr-only">Toggle navigation</span>
@@ -33,35 +28,25 @@ security = "all"
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="{{ 'home'|page }}">Vanilla</a>
+                        <a class="navbar-brand" href="{{ 'home'|page }}"></a>
                     </div>
                     <div class="collapse navbar-collapse navbar-main-collapse">
                         <ul class="nav navbar-nav">
-                            <li class="{% if this.page.id == 'account' %}active{% endif %}"><a href="{{ 'account'|page }}">Account</a></li>
+                            <li class="{% if this.page.id == 'home' %}active{% endif %}"><a href="{{ 'home'|page }}">Home</a></li>
                             <li class="{% if this.page.id == 'blog' %}active{% endif %}"><a href="{{ 'blog'|page }}">Blog</a></li>
-                            <li class="{% if this.page.id == 'forum' %}active{% endif %}"><a href="{{ 'forum'|page }}">Forum</a></li>
+                            <li class="{% if this.page.id == 'resume' %}active{% endif %}"><a href="{{ 'resume'|page }}">Resume</a></li>
+                            <li class="{% if this.page.id == 'portfolio' %}active{% endif %}"><a href="{{ 'portfolio'|page }}">Portfolio</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            {% if user %}
-                                <li><a href="#" data-request="onLogout">Logout</a></li>
-                            {% endif %}
+                            <li><a href="#" >Contact</a></li>
                         </ul>
                     </div>
                 </div>
             </nav>
-
         </header>
-
-        {% set jumbotronTexture = random(['carbon', 'dustnscratches', 'elegant', 'grunge', 'leather', 'lines', 'plaid', 'wood']) %}
 
         <!-- Content -->
         <section id="layout-content">
-            <div class="jumbotron" style="background-image:url({{ ('assets/images/textures/'~jumbotronTexture~'.png')|theme }})">
-                <div class="container">
-                    <h1>{{ this.page.title }}</h1>
-                    <p>{{ this.page.description }}</p>
-                </div>
-            </div>
             <div class="container">
                 {% page %}
             </div>
@@ -93,4 +78,5 @@ security = "all"
         {% scripts %}
 
     </body>
+
 </html>

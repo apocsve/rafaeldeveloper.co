@@ -12,26 +12,20 @@
 // Typography
 // --------------------------------------------------
 
-@font-family-sans-serif:  "lato", sans-serif;
+@font-family-sans-serif:  "Antonio", sans-serif;
 
-// Callouts
-// --------------------------------------------------
-@callout-padding:               20px;
-@callout-border-radius:         @border-radius-base;
-@callout-border:                @gray-lighter;
-
-@callout-info-bg:               #f4f8fa;
-@callout-info-text:             @state-info-text;
-@callout-info-border:           @state-info-border;
-
-@callout-warning-bg:            #faf8f0;
-@callout-warning-text:          @state-warning-text;
-@callout-warning-border:        @state-warning-border;
-
-@callout-danger-bg:             #fdf7f7;
-@callout-danger-text:           @state-danger-text;
-@callout-danger-border:         @state-danger-border;
-
-@callout-success-bg:            #f9fdf7;
-@callout-success-text:          @state-success-text;
-@callout-success-border:        @state-success-border;
+// Media query variables. Usage: @media @sm-and-up { ... } or @media @tablet, @desktop { ... }
+// Media query names like Bootstrap
+@xs-and-up: ~"only screen"; // xs is the smallest size, so "xs and up" is basically "everything on a screen"
+@xs-only: ~"only screen and (max-width: @{screen-xs-max})";
+@sm-and-up: ~"only screen and (min-width: @{screen-sm-min})";
+@sm-only: ~"only screen and (min-width: @{screen-sm-min}) and (max-width: @{screen-sm-max})";
+@md-and-up: ~"only screen and (min-width: @{screen-md-min})";
+@md-only: ~"only screen and (min-width: @{screen-md-min}) and (max-width: @{screen-md-max})";
+@lg-and-up: ~"only screen and (min-width: @{screen-lg-min})";
+@lg-only: @lg-and-up;
+// Media query names like how we talk in the project (although "true" responsive webdesign shouldn't use these terms)
+@print: ~"print";
+@mobile: @xs-only; // Don't use this if you're using other sizes too, because Mobile First should be the default.
+@tablet: @sm-only;
+@desktop: @md-and-up;
