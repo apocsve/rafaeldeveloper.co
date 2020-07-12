@@ -12,36 +12,43 @@ description = "Default layout"
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" href="{{ 'assets/images/october.png'|theme }}" />
         {% styles %}
-        <link href="{{ ['assets/less/theme.less']|theme }}" rel="stylesheet">
+        <link href="{{ ['assets/scss/theme.scss']|theme }}" rel="stylesheet">
     </head>
 
     <body>
         <!-- Header -->
         <header id="layout-header">
             <!-- Nav -->
-            <nav id="layout-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="{{ 'home'|page }}"></a>
-                    </div>
-                    <div class="collapse navbar-collapse navbar-main-collapse">
-                        <ul class="nav navbar-nav">
-                            <li class="{% if this.page.id == 'home' %}active{% endif %}"><a href="{{ 'home'|page }}">Home</a></li>
-                            <li class="{% if this.page.id == 'blog' %}active{% endif %}"><a href="{{ 'blog'|page }}">Blog</a></li>
-                            <li class="{% if this.page.id == 'resume' %}active{% endif %}"><a href="{{ 'resume'|page }}">Resume</a></li>
-                            <li class="{% if this.page.id == 'portfolio' %}active{% endif %}"><a href="{{ 'portfolio'|page }}">Portfolio</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#" >Contact</a></li>
-                        </ul>
-                    </div>
+            <nav id="layout-nav" class="navbar navbar-expand-md fixed-top">
+
+                <a class="navbar-brand" href="{{ 'home'|page }}"></a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <div class="navbar-collapse collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item {% if this.page.id == 'home' %}active{% endif %}">
+                            <a class="nav-link" href="{{ 'home'|page }}">Home</a>
+                        </li>
+                        <li class="nav-item {% if this.page.id == 'blog' %}active{% endif %}">
+                            <a class="nav-link" href="{{ 'blog'|page }}">Blog</a>
+                        </li>
+                        <li class="nav-item {% if this.page.id == 'resume' %}active{% endif %}">
+                            <a class="nav-link" href="{{ 'resume'|page }}">Resume</a>
+                        </li>
+                        <li class="nav-item {% if this.page.id == 'portfolio' %}active{% endif %}">
+                            <a class="nav-link" href="{{ 'portfolio'|page }}">Portfolio</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav mr-right">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" >Contact</a>
+                        </li>
+                    </ul>
                 </div>
+
             </nav>
         </header>
 
@@ -52,6 +59,9 @@ description = "Default layout"
             </div>
         </section>
 
+        <!-- Contact Form -->
+        {% partial "contact" %}
+
         <!-- Footer -->
         <footer id="layout-footer">
             {% partial "footer" %}
@@ -60,21 +70,9 @@ description = "Default layout"
         <!-- Scripts -->
         <script src="{{ [
             'assets/javascript/jquery.js',
-            'assets/vendor/bootstrap/js/transition.js',
-            'assets/vendor/bootstrap/js/alert.js',
-            'assets/vendor/bootstrap/js/button.js',
-            'assets/vendor/bootstrap/js/carousel.js',
-            'assets/vendor/bootstrap/js/collapse.js',
-            'assets/vendor/bootstrap/js/dropdown.js',
-            'assets/vendor/bootstrap/js/modal.js',
-            'assets/vendor/bootstrap/js/tooltip.js',
-            'assets/vendor/bootstrap/js/popover.js',
-            'assets/vendor/bootstrap/js/scrollspy.js',
-            'assets/vendor/bootstrap/js/tab.js',
-            'assets/vendor/bootstrap/js/affix.js',
+            'assets/vendor/bootstrap/js/bootstrap.bundle.js',
             'assets/javascript/app.js'
         ]|theme }}"></script>
-        {% framework extras %}
         {% scripts %}
 
     </body>

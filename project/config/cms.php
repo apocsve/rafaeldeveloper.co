@@ -327,7 +327,7 @@ return [
     |
     */
 
-    'convertLineEndings' => false,
+    'convertLineEndings' => true,
 
     /*
     |--------------------------------------------------------------------------
