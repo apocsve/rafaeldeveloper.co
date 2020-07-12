@@ -1,9 +1,7 @@
-name: Vanilla
-description: A plain starter template that implements account management, a blog and community forum.
-author: OctoberCMS
-homepage: 'http://octobercms.com'
-code: Vanilla
+name: Dark Purple
+description: A theme for freelancers
+author: Rafael Sanchez <hello@rafaeldeveloper.co>
+homepage: 'https://rafaeldeveloper.co'
+code: dark-purple
 require:
-    - RainLab.User
     - RainLab.Blog
-    - RainLab.Forum
