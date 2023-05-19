@@ -44,61 +44,55 @@ install_common_apps()
 
 install_php_stuff()
 {
-		echo "deb http://ppa.launchpad.net/ondrej/php/ubuntu bionic main" > /etc/apt/sources.list.d/ondrej-php.list \
-				&& apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4F4EA0AAE5267A6C \
-				&& apt-get update && apt-get install -y --no-install-recommends \
-						php-pear \
-						php-memcache \
-						php-memcached \
-						php-redis \
-						php-imagick \
-						php-apcu \
-						php-apcu-bc \
-						php-tidy \
-						php7.3 \
-						php7.3-dev \
-						php7.3-cli \
-						php7.3-curl \
-						php7.3-json \
-						php7.3-mbstring \
-						php7.3-opcache \
-						php7.3-readline \
-						php7.3-xml \
-						php7.3-zip \
-						php7.3-fpm \
-						php7.3-mysql \
-						php7.3-bcmath \
-						php7.3-bz2 \
-						php7.3-dba \
-						php7.3-enchant \
-						php7.3-gd \
-						php7.3-gmp \
-						php7.3-interbase \
-						php7.3-intl \
-						php7.3-pspell \
-						php7.3-recode \
-						php7.3-soap \
-						php7.3-sybase \
-						php7.3-xmlrpc \
-						php7.3-xsl \
-						gcc \
-						make \
-						autoconf \
-						libc-dev \
-						pkg-config \
-						libmcrypt-dev \
-				&& printf "\n" | pecl install mcrypt-1.0.2 \
-				&& printf "\n" | pecl install xdebug \
-				&& echo "extension=/usr/lib/php/20180731/mcrypt.so" > /etc/php/7.3/fpm/conf.d/mcrypt.ini \
-				&& echo "extension=/usr/lib/php/20180731/mcrypt.so" > /etc/php/7.3/cli/conf.d/mcrypt.ini \
-				&& info "Installing Composer..." 1 \
-				&& mkdir /composer-setup \
-				&& wget https://getcomposer.org/installer -P /composer-setup \
-				&& php /composer-setup/installer --install-dir=/usr/bin \
-				&& mv /usr/bin/composer{.phar,} \
-				&& composer global require hirak/prestissimo \
-				&& composer clear-cache \
-				&& rm -Rf /composer-setup ~/.composer
+		apt-get update && apt-get install -y --no-install-recommends \
+			php-pear \
+			php-memcache \
+			php-memcached \
+			php-redis \
+			php-imagick \
+			php-apcu \
+			php-tidy \
+			php8.1 \
+			php8.1-dev \
+			php8.1-cli \
+			php8.1-curl \
+			php8.1-mbstring \
+			php8.1-opcache \
+			php8.1-readline \
+			php8.1-xml \
+			php8.1-zip \
+			php8.1-fpm \
+			php8.1-mysql \
+			php8.1-bcmath \
+			php8.1-bz2 \
+			php8.1-dba \
+			php8.1-enchant \
+			php8.1-gd \
+			php8.1-gmp \
+			php8.1-interbase \
+			php8.1-intl \
+			php8.1-pspell \
+			php8.1-soap \
+			php8.1-sybase \
+			php8.1-xmlrpc \
+			php8.1-xsl \
+			gcc \
+			make \
+			autoconf \
+			libc-dev \
+			pkg-config \
+			libmcrypt-dev \
+			&& printf "\n" | pecl install mcrypt-1.0.5 \
+			&& printf "\n" | pecl install xdebug \
+			&& echo "extension=/usr/lib/php/20210902/mcrypt.so" > /etc/php/8.1/fpm/conf.d/mcrypt.ini \
+			&& echo "extension=/usr/lib/php/20210902/mcrypt.so" > /etc/php/8.1/cli/conf.d/mcrypt.ini \
+			&& info "Installing Composer..." 1 \
+			&& mkdir /composer-setup \
+			&& wget https://getcomposer.org/installer -P /composer-setup \
+			&& php /composer-setup/installer --install-dir=/usr/bin \
+			&& mv /usr/bin/composer{.phar,} \
+			&& composer clear-cache \
+			&& rm -Rf /composer-setup ~/.composer
 }
 
 create_log_dirs()

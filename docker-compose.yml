@@ -13,17 +13,17 @@ services:
     expose:
       - "6379"
     ports:
-      - "127.0.0.50:6379:6379"
+      - "6379:6379"
     networks:
       - rafaeldeveloper-network
 
   rafaeldeveloper-mysql:
-    image: mysql:5.7
+    image: mysql
     container_name: rafaeldeveloper-mysql
     expose:
       - "3306"
     ports:
-      - "127.0.0.51:3306:3306"
+      - "3306:3306"
     networks:
       - rafaeldeveloper-network
     volumes:
@@ -34,7 +34,7 @@ services:
       MYSQL_DATABASE: ${DB_NAME}
       MYSQL_USER: ${DB_USER}
       MYSQL_PASSWORD: ${DB_PASSWORD}
-      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+      MYSQL_ROOT_PASSWORD: "toor"
 
   rafaeldeveloper-base:
     user: root
@@ -46,10 +46,10 @@ services:
     expose:
       - "8080"
     ports:
-      - "127.0.0.52:80:8080"
+      - "80:8080"
     depends_on:
       - rafaeldeveloper-mysql
     networks:
       - rafaeldeveloper-network
     volumes:
-      - ./project:/var/www/html:rw
+      - ./winter:/var/www/html:rw

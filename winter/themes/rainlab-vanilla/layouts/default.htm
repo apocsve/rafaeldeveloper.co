@@ -1,0 +1,80 @@
+description = "Default layout"
+==
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Rafael Sánchez- {{ this.page.title }}</title>
+        <meta name="description" content="{{ this.page.meta_description }}">
+        <meta name="title" content="{{ this.page.meta_title }}">
+        <meta name="author" content="Rafael Sánchez">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="{{ 'assets/images/october.png'|theme }}" />
+        {% styles %}
+        <link href="{{ ['assets/scss/theme.scss']|theme }}" rel="stylesheet">
+    </head>
+
+    <body>
+        <!-- Header -->
+        <header id="layout-header">
+            <!-- Nav -->
+            <nav id="layout-nav" class="navbar navbar-expand-md fixed-top">
+
+                <a class="navbar-brand" href="{{ 'home'|page }}"></a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <div class="navbar-collapse collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item {% if this.page.id == 'home' %}active{% endif %}">
+                            <a class="nav-link" href="{{ 'home'|page }}">Home</a>
+                        </li>
+                        <li class="nav-item {% if this.page.id == 'blog' %}active{% endif %}">
+                            <a class="nav-link" href="{{ 'blog'|page }}">Blog</a>
+                        </li>
+                        <li class="nav-item {% if this.page.id == 'resume' %}active{% endif %}">
+                            <a class="nav-link" href="{{ 'resume'|page }}">Resume</a>
+                        </li>
+                        <li class="nav-item {% if this.page.id == 'portfolio' %}active{% endif %}">
+                            <a class="nav-link" href="{{ 'portfolio'|page }}">Portfolio</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav mr-right">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" >Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </nav>
+        </header>
+
+        <!-- Content -->
+        <section id="layout-content">
+            <div class="container">
+                {% page %}
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        {% partial "contact" %}
+
+        <!-- Footer -->
+        <footer id="layout-footer">
+            {% partial "footer" %}
+        </footer>
+
+        <!-- Scripts -->
+        <script src="{{ [
+            'assets/javascript/jquery.js',
+            'assets/vendor/bootstrap/js/bootstrap.bundle.js',
+            'assets/javascript/app.js'
+        ]|theme }}"></script>
+        {% scripts %}
+
+    </body>
+
+</html>

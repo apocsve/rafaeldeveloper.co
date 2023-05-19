@@ -1,5 +1,5 @@
-# Base Image UBUNTU 18.04
-FROM ubuntu:18.04
+# Base Image UBUNTU 22.04
+FROM ubuntu:22.04
 
 LABEL mantainer="Rafael <rafael@booug.com>"
 
@@ -25,7 +25,7 @@ RUN mkdir -p /var/www/scripts
 COPY ./nginx/app.conf /etc/nginx/conf.d/app.conf
 
 ## PHP Conf
-COPY ./php/php-fpm.conf /etc/php/7.3/fpm/php-fpm.conf
+COPY ./php/php-fpm.conf /etc/php/8.1/fpm/php-fpm.conf
 
 ## Supervisor
 COPY ./supervisord/supervisord.conf /etc/supervisord.conf

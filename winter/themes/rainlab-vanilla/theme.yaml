@@ -1,0 +1,7 @@
+name: Dark Purple
+description: A theme for freelancers
+author: Rafael Sanchez <hello@rafaeldeveloper.co>
+homepage: 'https://rafaeldeveloper.co'
+code: dark-purple
+require:
+    - RainLab.Blog

@@ -30,12 +30,6 @@ class VersionManager
     const HISTORY_TYPE_SCRIPT = 'script';
 
     /**
-     * The notes for the current operation.
-     * @var array
-     */
-    protected $notes = [];
-
-    /**
      * @var \Illuminate\Console\OutputStyle
      */
     protected $notesOutput;
@@ -89,7 +83,7 @@ class VersionManager
 
         // No updates needed
         if ($currentVersion == $databaseVersion) {
-            $this->note('- <info>Nothing to update.</info>');
+            $this->note(' - <info>Nothing to update.</info>');
             return;
         }
 
@@ -126,6 +120,8 @@ class VersionManager
      */
     protected function applyPluginUpdate($code, $version, $details)
     {
+        $version = $this->normalizeVersion($version);
+
         list($comments, $scripts) = $this->extractScriptsAndComments($details);
 
         /*
@@ -146,7 +142,7 @@ class VersionManager
             foreach ($comments as $comment) {
                 $this->applyDatabaseComment($code, $version, $comment);
 
-                $this->note(sprintf('- <info>v%s: </info> %s', $version, $comment));
+                $this->note(sprintf(' - <info>v%s: </info> %s', $version, $comment));
             }
         }
 
@@ -291,13 +287,18 @@ class VersionManager
             $versionInfo = [];
         }
 
-        if ($versionInfo) {
-            uksort($versionInfo, function ($a, $b) {
-                return version_compare($a, $b);
-            });
+        // Sort result
+        uksort($versionInfo, function ($a, $b) {
+            return version_compare($a, $b);
+        });
+
+        $result = [];
+
+        foreach ($versionInfo as $version => $info) {
+            $result[$this->normalizeVersion($version)] = $info;
         }
 
-        return $this->fileVersions[$code] = $versionInfo;
+        return $this->fileVersions[$code] = $result;
     }
 
     /**
@@ -426,6 +427,7 @@ class VersionManager
          * Execute the database PHP script
          */
         $updateFile = $this->pluginManager->getPluginPath($code) . '/updates/' . $script;
+
         $this->updater->packDown($updateFile);
 
         Db::table('system_plugin_history')
@@ -508,31 +510,7 @@ class VersionManager
     {
         if ($this->notesOutput !== null) {
             $this->notesOutput->writeln($message);
-        } else {
-            $this->notes[] = $message;
         }
-
-        return $this;
-    }
-
-    /**
-     * Get the notes for the last operation.
-     * @return array
-     */
-    public function getNotes()
-    {
-        return $this->notes;
-    }
-
-    /**
-     * Resets the notes store.
-     * @return self
-     */
-    public function resetNotes()
-    {
-        $this->notesOutput = null;
-
-        $this->notes = [];
 
         return $this;
     }
@@ -549,9 +527,13 @@ class VersionManager
         return $this;
     }
 
+    protected function normalizeVersion($version)
+    {
+        return ltrim((string) $version, 'v');
+    }
+
     /**
-     * @param $details
-     *
+     * Extract script and comments from version details
      * @return array
      */
     protected function extractScriptsAndComments($details): array
@@ -566,7 +548,8 @@ class VersionManager
             $scripts = array_values(array_filter($details, function ($detail) use ($fileNamePattern) {
                 return preg_match($fileNamePattern, $detail);
             }));
-        } else {
+        }
+        else {
             $comments = (array)$details;
             $scripts = [];
         }

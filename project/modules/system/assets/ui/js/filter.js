@@ -23,6 +23,7 @@
 
         this.options = options || {}
         this.scopeValues = {}
+        this.scopeAvailable = {}
         this.$activeScope = null
         this.activeScopeName = null
         this.isActiveScopeDirty = false
@@ -155,7 +156,7 @@
 
             $(event.relatedTarget).on('input', '#controlFilterPopover input[data-search]', function (e) {
                 self.searchQuery($(this))
-            });
+            })
         })
 
         // Setup event handler to apply selected options when closing the type: group scope popup
@@ -175,7 +176,7 @@
      */
     FilterWidget.prototype.bindDependants = function() {
         if (!$('[data-scope-depends]', this.$el).length) {
-            return;
+            return
         }
 
         var self = this,
@@ -286,23 +287,23 @@
 
         var
             itemId = $item.data('item-id'),
-            items = this.scopeValues[this.activeScopeName],
-            fromItems = isDeselect ? items.active : items.available,
-            toItems = isDeselect ? items.available : items.active,
-            testFunc = function(item){ return item.id == itemId },
-            item = $.grep(fromItems, testFunc).pop(),
+            active = this.scopeValues[this.activeScopeName],
+            available = this.scopeAvailable[this.activeScopeName],
+            fromItems = isDeselect ? active : available,
+            testFunc = function(active){ return active.id == itemId },
+            item = $.grep(fromItems, testFunc).pop() ?? {'id': itemId, 'name': $item.text()},
             filtered = $.grep(fromItems, testFunc, true)
 
-        if (isDeselect)
-            this.scopeValues[this.activeScopeName].active = filtered
-        else
-            this.scopeValues[this.activeScopeName].available = filtered
+        if (isDeselect) {
+            this.scopeValues[this.activeScopeName] = filtered
+            this.scopeAvailable[this.activeScopeName].push(item)
+        } else {
+            this.scopeAvailable[this.activeScopeName] = filtered
+            this.scopeValues[this.activeScopeName].push(item)
+        }
 
-        if (item)
-            toItems.push(item)
-
-        this.toggleFilterButtons(items)
-        this.updateScopeSetting(this.$activeScope, items.active.length)
+        this.toggleFilterButtons(active)
+        this.updateScopeSetting(this.$activeScope, isDeselect ? filtered.length : active.length)
         this.isActiveScopeDirty = true
         this.focusSearch()
     }
@@ -310,9 +311,16 @@
     FilterWidget.prototype.displayPopover = function($scope) {
         var self = this,
             scopeName = $scope.data('scope-name'),
-            data = this.scopeValues[scopeName],
+            data = null,
             isLoaded = true,
             container = false
+
+        if (typeof this.scopeAvailable[scopeName] !== "undefined" && this.scopeAvailable[scopeName]) {
+            data = $.extend({}, data, {
+                available: this.scopeAvailable[scopeName],
+                active: this.scopeValues[scopeName]
+            })
+        }
 
         // If the filter is running in a modal, popovers should be
         // attached to the modal container. This prevents z-index issues.
@@ -390,7 +398,8 @@
         if (!data.active) data.active = []
         if (!data.available) data.available = []
 
-        this.scopeValues[scopeName] = data
+        this.scopeValues[scopeName] = data.active
+        this.scopeAvailable[scopeName] = data.available
 
         // Do not render if scope has changed
         if (scopeName != this.activeScopeName)
@@ -424,9 +433,9 @@
         /*
          * Ensure any active items do not appear in the search results
          */
-        if (items.active.length) {
+        if (items.length) {
             var activeIds = []
-            $.each(items.active, function (key, obj) {
+            $.each(items, function (key, obj) {
                 activeIds.push(obj.id)
             })
 
@@ -457,7 +466,7 @@
             buttonContainer = $('#controlFilterPopover .filter-buttons')
 
         if (data) {
-            data.active.length > 0 ? buttonContainer.show() : buttonContainer.hide()
+            data.length > 0 ? buttonContainer.show() : buttonContainer.hide()
         } else {
             items.children().length > 0 ? buttonContainer.show() : buttonContainer.hide()
         }
@@ -473,7 +482,7 @@
         var self = this,
             data = {
                 scopeName: scopeName,
-                options: this.scopeValues[scopeName]
+                options: JSON.stringify(this.scopeValues[scopeName])
             }
 
         $.oc.stripeLoadIndicator.show()
@@ -541,11 +550,13 @@
 
         if (isReset) {
             this.scopeValues[scopeName] = null
+            this.scopeAvailable[scopeName] = null
+            this.isActiveScopeDirty = true
             this.updateScopeSetting(this.$activeScope, 0)
         }
 
-        this.pushOptions(scopeName);
-        this.isActiveScopeDirty = true;
+        this.pushOptions(scopeName)
+        this.isActiveScopeDirty = false
         this.$activeScope.data('oc.popover').hide()
     }
 
