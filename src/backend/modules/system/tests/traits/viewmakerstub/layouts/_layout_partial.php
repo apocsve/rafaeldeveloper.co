@@ -1,1 +1,0 @@
-layout partial contents
