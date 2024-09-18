@@ -1,0 +1,6 @@
+plugin:
+    name: 'focusfusion.website::lang.plugin.name'
+    description: 'focusfusion.website::lang.plugin.description'
+    author: FocusFusion
+    icon: oc-icon-cloud
+    homepage: ''
