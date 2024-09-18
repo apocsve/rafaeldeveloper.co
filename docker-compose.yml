@@ -34,22 +34,22 @@ services:
       MYSQL_DATABASE: ${DB_NAME}
       MYSQL_USER: ${DB_USER}
       MYSQL_PASSWORD: ${DB_PASSWORD}
-      MYSQL_ROOT_PASSWORD: "toor"
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
 
-  rafaeldeveloper-base:
+  rafaeldeveloper-backend:
     user: root
     build:
       context: ./base
       dockerfile: Dockerfile
-    container_name: rafaeldeveloper-base
+    container_name: rafaeldeveloper-backend
     restart: always
     expose:
       - "8080"
     ports:
-      - "80:8080"
+      - "9000:8080"
     depends_on:
       - rafaeldeveloper-mysql
     networks:
       - rafaeldeveloper-network
     volumes:
-      - ./winter:/var/www/html:rw
+      - ./src/backend:/var/www/html:rw
