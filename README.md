@@ -77,6 +77,6 @@
 - RainLab/Blog
 - RainLab/Blog Video
 - RainLab/Sitemap
-- RainLab/Static Pages
+- RainLab/Static Pagessudocc
 - RainLab/Google Analytics
 - RainLab/Vanilla Theme
