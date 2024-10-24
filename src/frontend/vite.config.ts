@@ -24,4 +24,13 @@ export default defineConfig({
     }),
     tsconfigPaths(),
   ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern',
+        includePaths: ['node_modules'],
+        silenceDeprecations: ['legacy-js-api']
+      }
+    }
+  },
 });

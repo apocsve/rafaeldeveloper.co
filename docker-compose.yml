@@ -58,7 +58,7 @@ services:
     image: node:lts
     container_name: rafaeldeveloper-frontend
     working_dir: /app
-    command: ["bash", "-c", "npm run start || tail -f /dev/null"]
+    command: ["sh", "-c", "npm run start || tail -f /dev/null"]
     ports:
       - "3000:3000"
     networks:
