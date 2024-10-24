@@ -10,7 +10,7 @@
         "laravel/framework": "^9.0",
         "october/all": "^3.0",
         "rainlab/builder-plugin": "^2.0",
-        "rainlab/pages-plugin": "^2.1"
+        "ahmadfatoni/apigenerator-plugin": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.5|^9.0"
