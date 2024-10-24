@@ -44,22 +44,21 @@ services:
     container_name: rafaeldeveloper-backend
     restart: always
     expose:
-      - "8000"
+      - "8080"
     ports:
-      - "9000:8000"
+      - "9000:8080"
     depends_on:
       - rafaeldeveloper-mysql
-      - rafaeldeveloper-redis
     networks:
       - rafaeldeveloper-network
     volumes:
       - ./src/backend:/var/www/html:rw
   
   rafaeldeveloper-frontend:
-    image: node:14
+    image: node:lts
     container_name: rafaeldeveloper-frontend
     working_dir: /app
-    command: ["npm", "run", "dev"]
+    command: ["bash", "-c", "npm run start || tail -f /dev/null"]
     ports:
       - "3000:3000"
     networks:
