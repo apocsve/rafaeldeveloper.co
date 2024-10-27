@@ -67,9 +67,19 @@
     - credentials_url
 
 - blog
+    - id
+    - reel_image
     - hero_image
     - square_image
+    - title
+    - excerpt
+    - content
 
+- navigation
+    - id
+    - label
+    - path
+    - target
 
 ## Resources
 
