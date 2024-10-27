@@ -17,7 +17,7 @@ export const meta: MetaFunction = () => {
 };
 
 export async function loader() {
-  const response = await fetch("http://rafaeldeveloper-backend:9000/api/v0/website/navigation");
+  const response = await fetch("http://rafaeldeveloper-backend:9000/api/v0/website/menu");
   const data = await response.json();
   return data.data;
 }
