@@ -4,7 +4,7 @@ use Backend;
 use BackendMenu;
 use Backend\Classes\Controller;
 
-class Navigation extends Controller
+class Posts extends Controller
 {
     public $implement = [
         \Backend\Behaviors\FormController::class,
@@ -14,10 +14,14 @@ class Navigation extends Controller
     public $formConfig = 'config_form.yaml';
     public $listConfig = 'config_list.yaml';
 
+    public $requiredPermissions = [
+        'websote_blog_manipulate_post' 
+    ];
+
     public function __construct()
     {
         parent::__construct();
-        BackendMenu::setContext('Focusfusion.Website', 'administrator');
+        BackendMenu::setContext('Focusfusion.Website', 'blog');
     }
 
 }

@@ -6,3 +6,12 @@ v1.0.2:
 v1.0.3:
     - 'Created table focusfusion_website_blog'
     - builder_table_create_focusfusion_website_blog.php
+v1.0.4:
+    - 'Updated table focusfusion_website_posts'
+    - builder_table_update_focusfusion_website_posts.php
+v1.0.5:
+    - 'Updated table focusfusion_website_posts'
+    - builder_table_update_focusfusion_website_posts_2.php
+v1.0.6:
+    - 'Updated table focusfusion_website_navigation'
+    - builder_table_update_focusfusion_website_menu_items.php

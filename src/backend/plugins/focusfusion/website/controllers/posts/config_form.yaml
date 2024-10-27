@@ -1,0 +1,10 @@
+name: Posts
+form: $/focusfusion/website/models/post/fields.yaml
+modelClass: Focusfusion\Website\Models\Post
+defaultRedirect: focusfusion/website/posts
+create:
+    redirect: 'focusfusion/website/posts/update/:id'
+    redirectClose: focusfusion/website/posts
+update:
+    redirect: focusfusion/website/posts
+    redirectClose: focusfusion/website/posts

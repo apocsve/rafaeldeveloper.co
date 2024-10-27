@@ -66,7 +66,7 @@
     - date
     - credentials_url
 
-- blog
+- posts
     - id
     - reel_image
     - hero_image

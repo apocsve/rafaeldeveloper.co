@@ -5,7 +5,7 @@ use Model;
 /**
  * Model
  */
-class Navigation extends Model
+class Post extends Model
 {
     use \October\Rain\Database\Traits\Validation;
     use \October\Rain\Database\Traits\SoftDelete;
@@ -18,7 +18,7 @@ class Navigation extends Model
     /**
      * @var string table in the database used by the model.
      */
-    public $table = 'focusfusion_website_navigation';
+    public $table = 'focusfusion_website_posts';
 
     /**
      * @var array rules for validation.

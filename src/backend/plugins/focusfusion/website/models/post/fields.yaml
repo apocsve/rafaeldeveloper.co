@@ -1,0 +1,68 @@
+tabs:
+    fields:
+        id:
+            label: Id
+            span: auto
+            readOnly: 1
+            context:
+                - update
+                - preview
+            type: number
+            tab: 'Tab 1'
+        created_at:
+            label: 'Created at'
+            mode: datetime
+            span: auto
+            readOnly: 1
+            context:
+                - update
+                - preview
+            type: datepicker
+            tab: 'Tab 1'
+        updated_at:
+            label: 'Updated at'
+            mode: datetime
+            span: auto
+            readOnly: 1
+            context:
+                - update
+                - preview
+            type: datepicker
+            tab: 'Tab 1'
+        deleted_at:
+            label: 'Deleted at'
+            mode: datetime
+            span: auto
+            readOnly: 1
+            context:
+                - update
+                - preview
+            type: datepicker
+            tab: 'Tab 1'
+        slug:
+            label: Slug
+            span: auto
+            preset:
+                field: title
+                type: slug
+            context:
+                - update
+                - preview
+            readOnly: 1
+            type: text
+            tab: 'Tab 1'
+fields:
+    title:
+        label: 'Post Title'
+        span: full
+        type: text
+    excerpt:
+        label: 'Post Excerpt'
+        size: small
+        span: full
+        type: textarea
+    content:
+        label: 'Post Content'
+        size: huge
+        span: full
+        type: richeditor

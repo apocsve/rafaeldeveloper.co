@@ -1,0 +1,10 @@
+name: MenuItems
+form: $/focusfusion/website/models/menuitem/fields.yaml
+modelClass: Focusfusion\Website\Models\MenuItem
+defaultRedirect: focusfusion/website/menuitems
+create:
+    redirect: 'focusfusion/website/menuitems/update/:id'
+    redirectClose: focusfusion/website/menuitems
+update:
+    redirect: focusfusion/website/menuitems
+    redirectClose: focusfusion/website/menuitems

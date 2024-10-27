@@ -5,12 +5,24 @@ plugin:
     icon: oc-icon-cloud
     homepage: ''
 navigation:
-    navigation:
-        label: Navigation
-        url: focusfusion/website/navigation
+    website_menu_items:
+        label: 'Menu Items'
+        url: focusfusion/website/menuitems
         icon: icon-sitemap
-        order: '100'
-    blog:
-        label: Blog
-        url: focusfusion/website/blogs
+        permissions:
+            - website_manipulate_menu_item
+        order: '10'
+    website_blog_posts:
+        label: 'Blog Posts'
+        url: focusfusion/website/posts
         icon: icon-newspaper-o
+        permissions:
+            - websote_blog_manipulate_post
+        order: '11'
+permissions:
+    website_manipulate_menu_item:
+        tab: navigation
+        label: 'Manipulate Menu Item'
+    websote_blog_manipulate_post:
+        tab: blog
+        label: 'Manupulate Blog Post'

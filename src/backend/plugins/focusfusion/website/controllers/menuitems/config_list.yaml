@@ -1,6 +1,6 @@
-list: $/focusfusion/website/models/navigation/columns.yaml
-modelClass: Focusfusion\Website\Models\Navigation
-title: Navigation
+list: $/focusfusion/website/models/menuitem/columns.yaml
+modelClass: Focusfusion\Website\Models\MenuItem
+title: MenuItems
 noRecordsMessage: 'backend::lang.list.no_records'
 showSetup: true
 showCheckboxes: true
@@ -9,4 +9,4 @@ toolbar:
     buttons: list_toolbar
     search:
         prompt: 'backend::lang.list.search_prompt'
-recordUrl: 'focusfusion/website/navigation/update/:id'
+recordUrl: 'focusfusion/website/menuitems/update/:id'

@@ -4,7 +4,7 @@ use Backend;
 use BackendMenu;
 use Backend\Classes\Controller;
 
-class Blogs extends Controller
+class MenuItems extends Controller
 {
     public $implement = [
         \Backend\Behaviors\FormController::class,
@@ -14,10 +14,14 @@ class Blogs extends Controller
     public $formConfig = 'config_form.yaml';
     public $listConfig = 'config_list.yaml';
 
+    public $requiredPermissions = [
+        'website_manipulate_menu_item' 
+    ];
+
     public function __construct()
     {
         parent::__construct();
-        BackendMenu::setContext('Focusfusion.Website', 'blog');
+        BackendMenu::setContext('Focusfusion.Website', 'website_menu_items');
     }
 
 }

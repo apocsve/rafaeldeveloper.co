@@ -5,7 +5,7 @@ use Model;
 /**
  * Model
  */
-class Blog extends Model
+class MenuItem extends Model
 {
     use \October\Rain\Database\Traits\Validation;
     use \October\Rain\Database\Traits\SoftDelete;
@@ -18,7 +18,7 @@ class Blog extends Model
     /**
      * @var string table in the database used by the model.
      */
-    public $table = 'focusfusion_website_blog';
+    public $table = 'focusfusion_website_menu_items';
 
     /**
      * @var array rules for validation.
