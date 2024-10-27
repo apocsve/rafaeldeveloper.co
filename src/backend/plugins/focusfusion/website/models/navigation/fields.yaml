@@ -1,0 +1,13 @@
+fields:
+    label:
+        label: Label
+        span: auto
+        type: textarea
+    path:
+        label: Path
+        span: auto
+        type: textarea
+    target:
+        label: Target
+        span: auto
+        type: textarea

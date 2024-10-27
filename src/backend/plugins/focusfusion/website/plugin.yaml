@@ -4,3 +4,13 @@ plugin:
     author: FocusFusion
     icon: oc-icon-cloud
     homepage: ''
+navigation:
+    navigation:
+        label: Navigation
+        url: focusfusion/website/navigation
+        icon: icon-sitemap
+        order: '100'
+    blog:
+        label: Blog
+        url: focusfusion/website/blogs
+        icon: icon-newspaper-o

@@ -1,0 +1,13 @@
+fields:
+    title:
+        label: Title
+        span: auto
+        type: text
+    excerpt:
+        label: Excerpt
+        span: auto
+        type: textarea
+    content:
+        label: Content
+        span: auto
+        type: textarea

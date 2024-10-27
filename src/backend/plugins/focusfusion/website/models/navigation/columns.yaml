@@ -1,0 +1,26 @@
+columns:
+    id:
+        label: id
+        type: number
+        invisible: true
+        sortable: true
+    created_at:
+        label: created_at
+        type: datetime
+    updated_at:
+        label: updated_at
+        type: datetime
+    deleted_at:
+        label: deleted_at
+        type: datetime
+        invisible: true
+    label:
+        label: label
+        type: text
+        searchable: true
+    path:
+        label: path
+        type: text
+    target:
+        label: target
+        type: text

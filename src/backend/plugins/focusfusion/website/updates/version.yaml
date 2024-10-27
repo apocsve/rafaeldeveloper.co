@@ -1,2 +1,8 @@
 v1.0.1:
     - 'Initialize plugin'
+v1.0.2:
+    - 'Created table focusfusion_website_navigation'
+    - builder_table_create_focusfusion_website_navigation.php
+v1.0.3:
+    - 'Created table focusfusion_website_blog'
+    - builder_table_create_focusfusion_website_blog.php
