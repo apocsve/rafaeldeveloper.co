@@ -1,4 +1,13 @@
-import type { MetaFunction } from "@remix-run/node";
+import { json, MetaFunction } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
+import WebsiteHeader from "~/components/WebsiteHeader/WebsiteHeader";
+
+interface NavigationItem {
+  id: number;
+  label: string;
+  path: string;
+  target: string;
+}
 
 export const meta: MetaFunction = () => {
   return [
@@ -7,18 +16,15 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+export async function loader() {
+  const response = await fetch("http://rafaeldeveloper-backend:9000/api/v0/website/navigation");
+  const data = await response.json();
+  return data.data;
+}
+
 export default function Index() {
+  const navigationItems: NavigationItem[] = useLoaderData<typeof loader>();
   return (
-    <section className="section">
-      <div className="container has-text-centered">
-        <h1 className="title">
-          Hello World
-        </h1>
-        <p className="subtitle">
-          My first website with
-          <strong className="has-text-primary">Bulma</strong>!
-        </p>
-      </div>
-    </section>
+    <WebsiteHeader navigationItems={navigationItems} />
   );
 }

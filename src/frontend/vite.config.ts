@@ -9,9 +9,6 @@ declare module "@remix-run/node" {
 }
 
 export default defineConfig({
-  server: {
-    port: 3000,
-  },
   plugins: [
     remix({
       future: {
@@ -32,5 +29,15 @@ export default defineConfig({
         silenceDeprecations: ['legacy-js-api']
       }
     }
+  },
+  preview: {
+    port: 3000,
+    strictPort: true,
+  },
+  server: {
+    port: 3000,
+    strictPort: true,
+    host: true,
+    origin: "http://0.0.0.0:3000",
   },
 });
