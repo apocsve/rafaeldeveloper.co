@@ -11,18 +11,28 @@ navigation:
         icon: icon-sitemap
         permissions:
             - website_manipulate_menu_item
-        order: '10'
+        order: '11'
     website_blog_posts:
         label: 'Blog Posts'
         url: focusfusion/website/posts
         icon: icon-newspaper-o
         permissions:
-            - websote_blog_manipulate_post
-        order: '11'
+            - website_blog_manipulate_post
+        order: '12'
+    website-projects:
+        label: Projects
+        url: focusfusion/website/projects
+        icon: icon-life-ring
+        permissions:
+            - website_manipulate_project
+        order: '10'
 permissions:
     website_manipulate_menu_item:
         tab: navigation
         label: 'Manipulate Menu Item'
-    websote_blog_manipulate_post:
+    website_blog_manipulate_post:
         tab: blog
-        label: 'Manupulate Blog Post'
+        label: 'Manipulate Blog Post'
+    website_manipulate_project:
+        tab: project
+        label: 'Manipulate Projects'

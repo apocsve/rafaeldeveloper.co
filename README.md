@@ -5,7 +5,7 @@
 
 - projects
     - id
-    - name
+    - title
     - slug
     - description
     - type

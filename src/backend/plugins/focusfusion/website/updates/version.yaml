@@ -15,3 +15,9 @@ v1.0.5:
 v1.0.6:
     - 'Updated table focusfusion_website_navigation'
     - builder_table_update_focusfusion_website_menu_items.php
+v1.0.7:
+    - 'Updated table focusfusion_website_posts'
+    - builder_table_update_focusfusion_website_posts_3.php
+v1.0.8:
+    - 'Created table focusfusion_website_projects'
+    - builder_table_create_focusfusion_website_projects.php

@@ -1,0 +1,72 @@
+fields:
+    title:
+        label: Title
+        span: auto
+        type: text
+    description:
+        label: Description
+        span: auto
+        type: textarea
+    type:
+        label: Type
+        span: auto
+        type: text
+    client_name:
+        label: 'Client name'
+        span: auto
+        type: text
+    date:
+        label: Date
+        span: auto
+        type: datepicker
+    dev_time:
+        label: 'Dev time'
+        span: auto
+        type: text
+    dev_tags:
+        label: 'Dev tags'
+        span: auto
+        type: text
+    featured_image:
+        label: 'Featured Image'
+        mode: image
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: mediafinder
+    gallery:
+        label: Gallery
+        span: auto
+        mode: file
+        thumbOptions:
+            mode: crop
+            extension: auto
+        type: mediafinder
+tabs:
+    fields:
+        id:
+            label: Id
+            span: auto
+            type: number
+            tab: 'System Information'
+        created_at:
+            label: 'Created at'
+            span: auto
+            type: datepicker
+            tab: 'System Information'
+        updated_at:
+            label: 'Updated at'
+            span: auto
+            type: datepicker
+            tab: 'System Information'
+        deleted_at:
+            label: 'Deleted at'
+            span: auto
+            type: datepicker
+            tab: 'System Information'
+        slug:
+            label: Slug
+            span: auto
+            type: text
+            tab: 'System Information'

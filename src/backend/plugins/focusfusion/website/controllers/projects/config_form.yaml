@@ -1,0 +1,10 @@
+name: Projects
+form: $/focusfusion/website/models/project/fields.yaml
+modelClass: Focusfusion\Website\Models\Project
+defaultRedirect: focusfusion/website/projects
+create:
+    redirect: 'focusfusion/website/projects/update/:id'
+    redirectClose: focusfusion/website/projects
+update:
+    redirect: focusfusion/website/projects
+    redirectClose: focusfusion/website/projects

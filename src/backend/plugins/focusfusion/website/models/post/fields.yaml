@@ -8,7 +8,7 @@ tabs:
                 - update
                 - preview
             type: number
-            tab: 'Tab 1'
+            tab: 'System Info'
         created_at:
             label: 'Created at'
             mode: datetime
@@ -18,7 +18,7 @@ tabs:
                 - update
                 - preview
             type: datepicker
-            tab: 'Tab 1'
+            tab: 'System Info'
         updated_at:
             label: 'Updated at'
             mode: datetime
@@ -28,7 +28,7 @@ tabs:
                 - update
                 - preview
             type: datepicker
-            tab: 'Tab 1'
+            tab: 'System Info'
         deleted_at:
             label: 'Deleted at'
             mode: datetime
@@ -38,7 +38,7 @@ tabs:
                 - update
                 - preview
             type: datepicker
-            tab: 'Tab 1'
+            tab: 'System Info'
         slug:
             label: Slug
             span: auto
@@ -50,7 +50,7 @@ tabs:
                 - preview
             readOnly: 1
             type: text
-            tab: 'Tab 1'
+            tab: 'System Info'
 fields:
     title:
         label: 'Post Title'
@@ -66,3 +66,27 @@ fields:
         size: huge
         span: full
         type: richeditor
+    hero_image:
+        label: 'Featured Image'
+        mode: image
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: mediafinder
+    reel_image:
+        label: 'Reel Image'
+        mode: image
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: mediafinder
+    square_image:
+        label: 'Square Image'
+        span: auto
+        mode: image
+        thumbOptions:
+            mode: crop
+            extension: auto
+        type: mediafinder
