@@ -2,42 +2,15 @@ columns:
     id:
         label: id
         type: number
+    title:
+        label: title
+        type: text
+    slug:
+        label: slug
+        type: text
     created_at:
         label: created_at
         type: datetime
     updated_at:
         label: updated_at
         type: datetime
-    deleted_at:
-        label: deleted_at
-        type: datetime
-    slug:
-        label: slug
-        type: text
-    title:
-        label: title
-        type: text
-    description:
-        label: description
-        type: text
-    type:
-        label: type
-        type: text
-    client_name:
-        label: client_name
-        type: text
-    date:
-        label: date
-        type: text
-    dev_time:
-        label: dev_time
-        type: text
-    dev_tags:
-        label: dev_tags
-        type: text
-    featured_image:
-        label: featured_image
-        type: text
-    gallery:
-        label: gallery
-        type: text

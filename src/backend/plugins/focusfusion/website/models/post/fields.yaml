@@ -42,9 +42,6 @@ tabs:
         slug:
             label: Slug
             span: auto
-            preset:
-                field: title
-                type: slug
             context:
                 - update
                 - preview

@@ -9,6 +9,9 @@ class Project extends Model
 {
     use \October\Rain\Database\Traits\Validation;
     use \October\Rain\Database\Traits\SoftDelete;
+    use \October\Rain\Database\Traits\Sluggable;
+
+    protected $jsonable = ['gallery'];
 
     /**
      * @var array dates to cast from the database.
@@ -20,10 +23,15 @@ class Project extends Model
      */
     public $table = 'focusfusion_website_projects';
 
+    // Define fields to be sluggable
+    protected $slugs = ['slug' => 'title'];
+
     /**
      * @var array rules for validation.
      */
     public $rules = [
+        'title' => 'required',
+        'slug' => 'unique:your_table'
     ];
 
 }

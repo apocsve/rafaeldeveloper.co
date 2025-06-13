@@ -9,6 +9,7 @@ class Post extends Model
 {
     use \October\Rain\Database\Traits\Validation;
     use \October\Rain\Database\Traits\SoftDelete;
+    use \October\Rain\Database\Traits\Sluggable;
 
     /**
      * @var array dates to cast from the database.
@@ -20,10 +21,15 @@ class Post extends Model
      */
     public $table = 'focusfusion_website_posts';
 
+    // Define fields to be sluggable
+    protected $slugs = ['slug' => 'title'];
+
     /**
      * @var array rules for validation.
      */
     public $rules = [
+        'title' => 'required',
+        'slug' => 'unique:your_table'
     ];
 
 }

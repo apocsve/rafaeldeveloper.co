@@ -1,3 +1,53 @@
+tabs:
+    fields:
+        id:
+            label: Id
+            span: auto
+            readOnly: 1
+            context:
+                - update
+                - preview
+            type: number
+            tab: 'System Information'
+        created_at:
+            label: 'Created at'
+            mode: datetime
+            span: auto
+            readOnly: 1
+            context:
+                - update
+                - preview
+            type: datepicker
+            tab: 'System Information'
+        updated_at:
+            label: 'Updated at'
+            mode: datetime
+            span: auto
+            readOnly: 1
+            context:
+                - update
+                - preview
+            type: datepicker
+            tab: 'System Information'
+        deleted_at:
+            label: 'Deleted at'
+            mode: datetime
+            span: auto
+            readOnly: 1
+            context:
+                - update
+                - preview
+            type: datepicker
+            tab: 'System Information'
+        slug:
+            label: Slug
+            span: auto
+            context:
+                - update
+                - preview
+            readOnly: 1
+            type: text
+            tab: 'System Information'
 fields:
     title:
         label: Title
@@ -30,6 +80,7 @@ fields:
     featured_image:
         label: 'Featured Image'
         mode: image
+        useMediaManager: true
         thumbOptions:
             mode: crop
             extension: auto
@@ -39,34 +90,10 @@ fields:
         label: Gallery
         span: auto
         mode: file
+        useMediaManager: true
         thumbOptions:
             mode: crop
             extension: auto
         type: mediafinder
-tabs:
-    fields:
-        id:
-            label: Id
-            span: auto
-            type: number
-            tab: 'System Information'
-        created_at:
-            label: 'Created at'
-            span: auto
-            type: datepicker
-            tab: 'System Information'
-        updated_at:
-            label: 'Updated at'
-            span: auto
-            type: datepicker
-            tab: 'System Information'
-        deleted_at:
-            label: 'Deleted at'
-            span: auto
-            type: datepicker
-            tab: 'System Information'
-        slug:
-            label: Slug
-            span: auto
-            type: text
-            tab: 'System Information'
+        options:
+            multiple: true
